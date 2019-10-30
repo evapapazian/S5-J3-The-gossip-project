@@ -43,15 +43,16 @@ class GossipsController < ApplicationController
   end
 
   def update
-   
+    
      @gossip = Gossip.find(params[:id])
+     post_params = params.permit(:title, :content)
 
-     if @gossip.update(title: params[:title], content: params[:content], user_id: 2)
+     if @gossip.update(post_params, user_id: 2) #title: params[:title], content: params[:content]
      @gossips=Gossip.all
      redirect_to gossips_path
 
      else
-     render 'edit'
+     render :edit
   
 end
 end
@@ -60,8 +61,13 @@ end
   def destroy
     # Méthode qui récupère le potin concerné et le détruit en base
     # Une fois la suppression faite, on redirige généralement vers la méthode index (pour afficher la liste à jour)
+    
+
     @gossip = Gossip.find(params[:id])
-    @gossip.destroy
-    redirect_to gossips_path 
+
+   if  @gossip.destroy
+       redirect_to gossips_path 
+    else render :show
   end
+end
 end
