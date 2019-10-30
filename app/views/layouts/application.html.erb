@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+
+<style>
+  .jumbotron jumbotron-fluid{background-color:aeecd8}
+
+
+</style>
+
   <head>
     <title>TheGossipProject</title>
     <%= csrf_meta_tags %>
@@ -9,6 +16,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <
+     <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">The Gossip Project</h1>
+    <p class="lead">LE site qui concentre tous les gossips de THP.</p>
+  </div>
+</div>
 
     <!-- NavBar --!>
 
@@ -36,5 +50,6 @@
     <br><br><br>
 
     <%= yield %>
+
   </body>
 </html>

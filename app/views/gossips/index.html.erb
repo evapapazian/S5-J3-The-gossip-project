@@ -1,6 +1,6 @@
 <h1 class= "text-center display-4">BIENVENUE</h1>
 
-<h4> Tu veut creer un Gossip ? C'est <a href="#">la</a> !</h4>
+<h4> Tu veux créer un Gossip ? C'est <a href="<%= new_gossip_path%>">là</a> !</h4>
 <br>
 <div class="">
 <% @gossip.each do |t| %>
@@ -10,9 +10,14 @@
         <h5 class="card-title"><%= @user.find(t.user_id).first_name%></h5>
         <p class="card-text"><%= t.content %></p>
         <a class="btn btn-outline-danger" href="<%= gossip_path(t) %>">Continue</a>
+        
       </div>
     </div>
   </div>
 </div>
+
+
+
+
 <br><br>
 <% end %>
